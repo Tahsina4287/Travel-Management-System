@@ -1,0 +1,81 @@
+SET LINESIZE 32767;
+DROP TABLE AdminTable CASCADE CONSTRAINTS;
+DROP TABLE USER1 CASCADE CONSTRAINTS;
+DROP TABLE USER2 CASCADE CONSTRAINTS;
+DROP TABLE BOOKED1 CASCADE CONSTRAINTS;
+DROP TABLE AVAILABLE1 CASCADE CONSTRAINTS;
+DROP TABLE PAYMENT1 CASCADE CONSTRAINTS;
+DROP TABLE PAYMENT3 CASCADE CONSTRAINTS;
+
+	
+CREATE TABLE AdminTable (
+	U_ID VARCHAR2(8), 
+	NAME varchar2(50), 
+	LOCATION varchar2(20), 
+	PRIMARY KEY(U_ID));
+	
+insert into AdminTable values(10, 'Admin', 'Dhaka'); 
+
+CREATE TABLE USER1 (
+	U_ID VARCHAR2(8), 
+	NAME varchar2(50), 
+	LOCATION varchar2(20), 
+	PRIMARY KEY(U_ID));
+
+CREATE TABLE USER2 (
+	U_ID VARCHAR2(8), 
+	NAME varchar2(50), 
+	LOCATION varchar2(20), 
+	PRIMARY KEY(U_ID));
+
+
+CREATE TABLE BOOKED1(
+    B_ID INT,
+	U_ID VARCHAR2(8),
+	person int,
+	PRIMARY KEY(B_ID)
+);
+	
+	
+CREATE TABLE AVAILABLE1(
+    A_ID INT,
+	SOURCE VARCHAR2(30),
+	DESTINATION VARCHAR2(30),
+	DATEOFBOOK DATE,
+	AMOUNT INT,
+	PRIMARY KEY(A_ID));
+	
+
+CREATE TABLE PAYMENT1(
+    P_ID INT,
+	U_ID VARCHAR2(8),
+	A_ID INT,
+	B_ID INT,
+	AMOUNT INT,
+	METHOD VARCHAR2(20),
+	STATUS VARCHAR2(20),
+	PRIMARY KEY(P_ID));
+	
+
+CREATE TABLE PAYMENT3(
+    P_ID INT,
+	U_ID VARCHAR2(8),
+	A_ID INT,
+	B_ID INT,
+	AMOUNT INT,
+	METHOD VARCHAR2(20),
+	STATUS VARCHAR2(20),
+	PRIMARY KEY(P_ID));
+
+COMMIT ;
+
+select * from user1;
+select * from user2;
+select * from user3@site_link;
+select * from booked1;
+select * from booked2@site_link;
+select * from available1;
+select * from available2@site_link;
+select * from Payment1;
+select * from Payment2@site_link;
+select * from Payment3;
